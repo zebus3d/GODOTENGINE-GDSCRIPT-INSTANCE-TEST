@@ -37,7 +37,7 @@ script = ExtResource( 1 )
 cubo = ExtResource( 2 )
 
 [node name="Camera" type="Spatial" parent="."]
-transform = Transform( 0.699115, 0.577555, 0.421508, 5.51343e-006, 0.589509, -0.807762, -0.715009, 0.56472, 0.412132, 49.5239, 54.3762, 50.268 )
+transform = Transform( 0.699115, 0.577555, 0.421508, 5.51343e-06, 0.589509, -0.807762, -0.715009, 0.56472, 0.412132, 49.5239, 54.3762, 50.268 )
 
 [node name="Camera_Orientation" type="Camera" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
@@ -46,15 +46,16 @@ near = 0.1
 far = 1000.0
 
 [node name="cubo" parent="." instance=ExtResource( 2 )]
+input_ray_pickable = false
 
 [node name="Solo_suelo" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="caja" type="MeshInstance" parent="Solo_suelo"]
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Solo_suelo/caja"]
+input_ray_pickable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Solo_suelo/caja/StaticBody"]
 shape = SubResource( 2 )
@@ -74,6 +75,9 @@ margin_bottom = 690.0
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Cantidad de cubos = 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="fps" type="RichTextLabel" parent="."]
 margin_left = 10.0
@@ -87,5 +91,11 @@ text = "FPS"
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.845854, 0.12921, -0.517528, 0.279462, 0.71906, 0.636282, 0.454347, -0.682831, 0.57211, 0, 31.1453, 0 )
 light_energy = 0.8
+light_specular = 0.0
+light_bake_mode = 2
 shadow_enabled = true
+directional_shadow_normal_bias = 0.5
+directional_shadow_bias_split_scale = 0.5
+directional_shadow_depth_range = 1
+directional_shadow_max_distance = 130.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

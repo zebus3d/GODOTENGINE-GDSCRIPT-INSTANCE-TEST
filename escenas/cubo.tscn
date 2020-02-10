@@ -2,7 +2,7 @@
 
 [ext_resource path="res://escenas_importadas/cubo.material" type="Material" id=1]
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "cubo"
 surfaces/0 = {
 "aabb": AABB( -1.61048, -1.61048, -1.61048, 3.22095, 3.22096, 3.22096 ),
@@ -17,18 +17,17 @@ surfaces/0 = {
 "vertex_count": 24
 }
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 1.61, 1.61, 1.61 )
 
 [node name="cubo" type="RigidBody"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5365, 0 )
 gravity_scale = 15.0
 contacts_reported = 1
 
 [node name="cubo" type="MeshInstance" parent="."]
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
